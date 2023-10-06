@@ -33,4 +33,14 @@ public class AgendaDeContatos {
         }
         return contatoAtualizado;
     }
+    public static void main(String[] args) {
+        AgendaDeContatos agendaDeContatos = new AgendaDeContatos();
+        System.out.println("");
+        agendaDeContatos.adicionarContato("Cristiano", 808732);
+        agendaDeContatos.adicionarContato("Cristiano", 808733);
+        agendaDeContatos.adicionarContato("Joao", 808733);
+        agendaDeContatos.adicionarContato("Eduardo", 808734);
+        agendaDeContatos.exibirContatos();
+        System.out.println("");
+    }
 }
