@@ -8,7 +8,7 @@ public class Produto implements Comparable<Produto>{
     private String nome;
     private double preco;
     private int quantidade;
-    private int codigo;
+    private long codigo;
 
 
 
@@ -39,7 +39,7 @@ public class Produto implements Comparable<Produto>{
         this.quantidade = quantidade;
     }
     public int getCodigo() {
-        return codigo;
+        return (int) codigo;
     }
     public void setCodigo(int codigo) {
         this.codigo = codigo;
@@ -55,7 +55,7 @@ public class Produto implements Comparable<Produto>{
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + codigo;
+        result = (int) (prime * result + codigo);
         return result;
     }
     @Override
@@ -73,10 +73,13 @@ public class Produto implements Comparable<Produto>{
     }
     /* Metodo compateTo */
     @Override
-    public int compareTo(Object o) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
+    public int compareTo(Produto o) {
+        return nome.compareToIgnoreCase(o.getNome());
     }
+    class ComparatorPorPreco implements Comparator<Produto> {
+        @Override
+        public int compare(Produto p1, Produto p2) {
+          return Double.compare(p1.getPreco(), p2.getPreco());
+        }
     
-    
-}
+}}
